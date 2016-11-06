@@ -1,0 +1,37 @@
+html
+{
+  background-color: #c8e6c9;
+}
+h1, h2, h3
+{
+  font-family: 'Titillium Web', sans-serif;
+}
+h2
+{
+  margin-bottom: 0;
+}
+body
+{
+  font-family: 'Open Sans', sans-serif;
+}
+.main
+{
+  display: block;
+  margin: auto;
+  width: 75%;
+  text-align: center;
+  background-color: #689f38;
+}
+table
+{
+  margin: auto;
+  width: auto;
+}
+th
+{
+  text-align: right;
+}
+td
+{
+  text-align: left;
+}
