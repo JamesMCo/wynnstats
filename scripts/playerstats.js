@@ -32,7 +32,6 @@ function processRequest(e) {
     document.getElementById("pvp_kills").innerHTML   = response.global.pvp_kills
     document.getElementById("pvp_deaths").innerHTML  = response.global.pvp_deaths
     document.getElementById("chests_found").innerHTML  = response.global.chests_found
-    document.getElementById("blocks_walked").innerHTML  = response.global.blocks_walked
     document.getElementById("logins").innerHTML  = response.global.logins
     document.getElementById("deaths").innerHTML  = response.global.deaths
     document.getElementById("total_level").innerHTML  = response.global.total_level
