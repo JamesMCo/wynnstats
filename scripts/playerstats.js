@@ -11,8 +11,7 @@ function processRequest(e) {
     var response = JSON.parse(xhr.responseText);
 
     if (response.error == "Player not found") {
-      document.getElementById("namerank").innerHTML   = "Player not found!";
-      document.getElementById("stats").innerHTML      = "";
+      document.getElementsByClassName("main")[0].innerHTML = "<h1>WynnStats</h1><h1>Player not found!</h1>";
       return
     }
 
@@ -44,18 +43,44 @@ function processRequest(e) {
     for (var classname in response.classes) {
       if (response.classes.hasOwnProperty(classname)) {
         c = eval("response.classes." + classname)
-        document.getElementById("classdiv").innerHTML += "<div id='" + classname + "div'><h2 class='classtitle' onclick='toggleHide(\"" + classname + "\")'>" + classname + "</h2><table id='" + classname + "stats' style='display: none;'><tr><th>Level</th><td>" + c.level + "</td></tr><tr><th>XP</th><td>" + c.xp + "%</td></tr></table></div>"
+         var cur_stat_html = "<div id='" + classname + "div'><h2 class='classtitle hoverpointer' onclick='toggleHideId(\"" + classname + "stats\")'>" + classname + "</h2><table id='" + classname + "stats' style='display: none;'><tr><th>Level</th><td>" + c.level + "</td></tr><tr><th>XP</th><td>" + c.xp + "%</td></tr><tr onclick='toggleHideClass(\"" + classname + "dungeons\")' class='hoverpointer'><th>Dungeons</th><td>" + c.dungeonsAmount + "</td></tr>"
+        for (var dungeonname in c.dungeons) {
+          if (c.dungeons.hasOwnProperty(dungeonname)) {
+            cur_stat_html += "<tr class='" + classname + "dungeons' style='display: none;'><th>" + dungeonname + "</th><td>" + c.dungeons[dungeonname] + "</td></tr>"
+          }
+        }
+        cur_stat_html += "<tr onclick='toggleHideClass(\"" + classname + "quests\")' class='hoverpointer'><th>Quests</th><td>" + c.questsAmount + "</td></tr>"
+        for (var questname in c.quests) {
+          if (c.quests.hasOwnProperty(questname)) {
+            cur_stat_html += "<tr class='" + classname + "quests' style='display: none;'><th></th><td>" + c.quests[questname] + "</td></tr>"
+          }
+        }
+        document.getElementById("classdiv").innerHTML += cur_stat_html + "</table></div>"
       }
     }
     document.getElementById("classdiv").innerHTML += "<br><br>"
   }
 }
 
-function toggleHide(e) {
-  if (document.getElementById(e + "stats").style.display == "") {
-    document.getElementById(e + "stats").style.display = "none"
+function toggleHideId(e) {
+  if (document.getElementById(e).style.display == "") {
+    document.getElementById(e).style.display = "none"
   }
   else {
-    document.getElementById(e + "stats").style.display = ""
+    document.getElementById(e).style.display = ""
+  }
+}
+
+function toggleHideClass(e) {
+  for (var i in document.getElementsByClassName(e)) {
+    if (document.getElementsByClassName(e).hasOwnProperty(i)) {
+      j = eval(document.getElementsByClassName(e)[i])
+      if (j.style.display == "") {
+        j.style.display = "none"
+      }
+      else {
+        j.style.display = ""
+      }
+    }
   }
 }

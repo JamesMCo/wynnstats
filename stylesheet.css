@@ -25,6 +25,9 @@ body
 .classtitle
 {
   text-transform: capitalize;
+}
+.hoverpointer
+{
   cursor: pointer;
 }
 table
