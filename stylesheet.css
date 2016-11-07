@@ -22,9 +22,10 @@ body
   text-align: center;
   background-color: #689f38;
 }
-.titlecase
+.classtitle
 {
   text-transform: capitalize;
+  cursor: pointer;
 }
 table
 {

@@ -41,10 +41,21 @@ function processRequest(e) {
     document.getElementById("deaths").innerHTML       = response.global.deaths;
     document.getElementById("total_level").innerHTML  = response.global.total_level;
 
-    for (var c in response.classes) {
-      if (response.classes.hasOwnProperty(c)) {
-        document.getElementById("classdiv").innerHTML += "<div id='" + c + "div'><h2 class='titlecase'>" + c + "</h2><table id='" + c + "stats'><tr><th>Level</th><td>" + eval("response.classes." + c).level + "</td></tr></table></div>"
+    for (var classname in response.classes) {
+      if (response.classes.hasOwnProperty(classname)) {
+        c = eval("response.classes." + classname)
+        document.getElementById("classdiv").innerHTML += "<div id='" + classname + "div'><h2 class='classtitle' onclick='toggleHide(\"" + classname + "\")'>" + classname + "</h2><table id='" + classname + "stats' style='display: none;'><tr><th>Level</th><td>" + c.level + "</td></tr><tr><th>XP</th><td>" + c.xp + "%</td></tr></table></div>"
       }
     }
+    document.getElementById("classdiv").innerHTML += "<br><br>"
+  }
+}
+
+function toggleHide(e) {
+  if (document.getElementById(e + "stats").style.display == "") {
+    document.getElementById(e + "stats").style.display = "none"
+  }
+  else {
+    document.getElementById(e + "stats").style.display = ""
   }
 }
