@@ -43,7 +43,7 @@ function processRequest(e) {
 
     for (var c in response.classes) {
       if (response.classes.hasOwnProperty(c)) {
-        document.getElementById("classdiv").innerHTML += "<div id='" + c + "div'><h2 class='titlecase'>" + c + "</h2><table id='" + c + "stats'><tr><th>Level</th><td>" + eval("response.classes." + c).level + "</td></tr></div>"
+        document.getElementById("classdiv").innerHTML += "<div id='" + c + "div'><h2 class='titlecase'>" + c + "</h2><table id='" + c + "stats'><tr><th>Level</th><td>" + eval("response.classes." + c).level + "</td></tr></table></div>"
       }
     }
   }
