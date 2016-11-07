@@ -47,7 +47,7 @@ function processRequest(e) {
          var cur_stat_html = "<div id='" + classname + "div'><h2 class='classtitle hoverpointer' onclick='toggleHideId(\"" + classname + "stats\")'>" + classname + "</h2><table id='" + classname + "stats' style='display: none;'><tr><th>Level</th><td>" + c.level + "</td></tr><tr><th>XP</th><td>" + c.xp + "%</td></tr><tr onclick='toggleHideClass(\"" + classname + "dungeons\")' class='hoverpointer'><th>Dungeons</th><td>" + c.dungeonsAmount + "</td></tr>"
         for (var dungeonname in c.dungeons) {
           if (c.dungeons.hasOwnProperty(dungeonname)) {
-            cur_stat_html += "<tr class='" + classname + "dungeons' style='display: none;'><th>" + dungeonname + "</th><td>" + c.dungeons[dungeonname] + "</td></tr>"
+            cur_stat_html += "<tr class='" + classname + "dungeons' style='display: none;'><th></th><td>" + dungeonname + " (" + c.dungeons[dungeonname] + ")</td></tr>"
           }
         }
         cur_stat_html += "<tr onclick='toggleHideClass(\"" + classname + "quests\")' class='hoverpointer'><th>Quests</th><td>" + c.questsAmount + "</td></tr>"
