@@ -59,7 +59,7 @@ function processRequest(e) {
         document.getElementById("classdiv").innerHTML += cur_stat_html + "</table></div>"
       }
     }
-    document.getElementById("classdiv").innerHTML += "<br><br>"
+    document.getElementById("classdiv").innerHTML += "<br><br><h3>Find another Player's Stats</h3><form action='player' method='get'><input type='text' name='name' placeholder='Username (Case Sensitive)'><input type='submit'></form><br><br>"
   }
 }
 
