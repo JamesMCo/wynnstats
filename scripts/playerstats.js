@@ -11,7 +11,7 @@ function processRequest(e) {
     var response = JSON.parse(xhr.responseText);
 
     if (response.error == "Player not found") {
-      document.getElementsByClassName("main")[0].innerHTML = "<h1>WynnStats</h1><h1>Player not found!</h1>";
+      document.getElementsByClassName("main")[0].innerHTML = "<h1>WynnStats</h1><h1>Player not found!</h1><br><br><h3>Find Another Player's Stats</h3><form action='player' method='get'><input type='text' name='name' placeholder='Username (Case Sensitive)'><input type='submit'></form><br><br>";
       return
     }
 
