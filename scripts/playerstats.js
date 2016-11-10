@@ -43,7 +43,7 @@ function processRequest(e) {
     for (var classname in response.classes) {
       if (response.classes.hasOwnProperty(classname)) {
         c = eval("response.classes." + classname)
-         var cur_stat_html = "<div id='" + classname + "div'><h2 class='classtitle hoverpointer' onclick='toggleHideId(\"" + classname + "stats\")'>" + classname + "</h2><table id='" + classname + "stats' style='display: none;'><tr><th>Level</th><td>" + c.level + "</td></tr><tr><th>XP</th><td>" + c.xp + "%</td></tr><tr onclick='toggleHideClass(\"" + classname + "dungeons\")' class='hoverpointer'><th>Dungeons</th><td>" + c.dungeonsAmount + "</td></tr>"
+         var cur_stat_html = "<div id='" + classname + "div'><h2 class='classtitle hoverpointer' onclick='toggleHideId(\"" + classname + "stats\")'>" + classname + "</h2><table id='" + classname + "stats' style='display: none;'><tr><tr><th style='vertical-align: text-top;'>Total Playtime</th><td>" + c.playtime + " minutes<br>≈ " + Math.round((c.playtime / 60) * 100) / 100 + " hours</td></tr><th>Level</th><td>" + c.level + "</td></tr><tr><th>XP</th><td>" + c.xp + "%</td></tr><tr onclick='toggleHideClass(\"" + classname + "dungeons\")' class='hoverpointer'><th>Dungeons</th><td>" + c.dungeonsAmount + "</td></tr>"
         for (var dungeonname in c.dungeons) {
           if (c.dungeons.hasOwnProperty(dungeonname)) {
             cur_stat_html += "<tr class='" + classname + "dungeons' style='display: none;'><th></th><td>" + dungeonname + " (" + c.dungeons[dungeonname] + ")</td></tr>"
@@ -55,7 +55,7 @@ function processRequest(e) {
             cur_stat_html += "<tr class='" + classname + "quests' style='display: none;'><th></th><td>" + c.quests[questname] + "</td></tr>"
           }
         }
-        document.getElementById("classdiv").innerHTML += cur_stat_html + "</table></div>"
+        document.getElementById("classdiv").innerHTML += cur_stat_html + "<tr><th>Mobs Killed</th><td>" + c.mobs_killed + "</td></tr><tr><th>PvP Kills</th><td>" + c.pvp_kills + "</td></tr><tr><th>PvP Deaths</th><td>" + c.pvp_deaths + "</td></tr><tr><th>Chests Found</th><td>" + c.chests_found + "</td></tr><tr><th>Logins</th><td>" + c.logins + "</td></tr><tr><th>Deaths</th><td>" + c.deaths + "</td></tr><tr><th>Events Won</th><td>" + c.events_won + "</td></tr></table></div>"
       }
     }
     document.getElementById("classdiv").innerHTML += "<br><br><h3>Find Another Player's Stats</h3><form action='player' method='get'><input type='text' name='name' placeholder='Username (Case Sensitive)'><input type='submit'></form><br><br>"
