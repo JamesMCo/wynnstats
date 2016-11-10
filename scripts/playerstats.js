@@ -32,7 +32,6 @@ function processRequest(e) {
     document.getElementById("playtime").innerHTML = response.playtime + " minutes<br>≈ " + Math.round((response.playtime / 60) * 100) / 100 + " hours";
     document.getElementById("first_join").innerHTML = response.first_join_friendly;
     document.getElementById("last_join").innerHTML = response.last_join_friendly;
-    document.getElementById("items_ided").innerHTML = response.global.items_identified;
     document.getElementById("mobs_killed").innerHTML = response.global.mobs_killed;
     document.getElementById("pvp_kills").innerHTML = response.global.pvp_kills;
     document.getElementById("pvp_deaths").innerHTML = response.global.pvp_deaths;
