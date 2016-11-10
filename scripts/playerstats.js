@@ -25,6 +25,15 @@ function processRequest(e) {
       document.getElementById("rank").innerHTML = response.rank;
     }
 
+    if (response.guild.name != "None") {
+      document.getElementById("guildname").innerHTML = response.guild.name;
+      document.getElementById("guildrank").innerHTML = response.guild.rank;
+      //document.getElementById("guildinfo").onclick = function(){window.open("guild?name=" + response.guild.name, "_self");};
+    }
+    else {
+      document.getElementById("guildinfo").innerHTML = "";
+    }
+
     if (response.current_server != "null") {
       document.getElementById("c_server").innerHTML = "Currently Online: " + response.current_server;
     }
