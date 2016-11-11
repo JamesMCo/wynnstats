@@ -27,7 +27,9 @@ function processRequest(e) {
       if (response.members.hasOwnProperty(player)) {
         p = response.members[player]
         if (typeof p.name !== "undefined") {
-          document.getElementById("memberdiv").innerHTML += "<div id='" + p.name + "div'><h2 class='classtitle hoverpointer' onclick='toggleHideId(\"" + p.name + "stats\")'>" + p.name + "</h2><table id='" + p.name + "stats' style='display: none;'><tr><th>Rank</th><td class='classtitle'>" + p.rank.toLowerCase() + "</td></tr><th>XP Contributed</th><td>" + p.contributed + "</td></tr><tr><th>Joined</th><td>" + p.joinedFriendly + "</td></tr><tr class='hoverpointer' onclick='window.open(\"player?name=" + p.name + "\", \"_self\")'><th colspan='2' style='text-align: center;'>View Player Stats</th></tr></table></div>"
+          if (document.getElementById(p.name + "stats") == null) {
+            document.getElementById("memberdiv").innerHTML += "<div id='" + p.name + "div'><h2 class='classtitle hoverpointer' onclick='toggleHideId(\"" + p.name + "stats\")'>" + p.name + "</h2><table id='" + p.name + "stats' style='display: none;'><tr><th>Rank</th><td class='classtitle'>" + p.rank.toLowerCase() + "</td></tr><th>XP Contributed</th><td>" + p.contributed + "</td></tr><tr><th>Joined</th><td>" + p.joinedFriendly + "</td></tr><tr class='hoverpointer' onclick='window.open(\"player?name=" + p.name + "\", \"_self\")'><th colspan='2' style='text-align: center;'>View Player Stats</th></tr></table></div>"
+          }
         }
       }
     }
