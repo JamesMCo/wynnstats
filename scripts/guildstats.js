@@ -31,7 +31,7 @@ function processRequest(e) {
         }
       }
     }
-    document.getElementById("memberdiv").innerHTML += "<br><br><h3>Find Another Player's Stats</h3><form action='player' method='get'><input type='text' name='name' placeholder='Username (Case Sensitive)'><input type='submit'></form><br><br>"
+    document.getElementById("memberdiv").innerHTML += "<br><br><h3>Find Another Guild's Stats</h3><form action='guild' method='get'><input type='text' name='name' placeholder='Guild Name (Case Sensitive)'><input type='submit'></form><br><br>"
   }
 }
 
