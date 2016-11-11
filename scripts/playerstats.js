@@ -28,7 +28,7 @@ function processRequest(e) {
     if (response.guild.name != "None") {
       document.getElementById("guildname").innerHTML = response.guild.name;
       document.getElementById("guildrank").innerHTML = response.guild.rank;
-      //document.getElementById("guildinfo").onclick = function(){window.open("guild?name=" + response.guild.name, "_self");};
+      document.getElementById("guildinfo").onclick = function(){window.open("guild?name=" + response.guild.name, "_self");};
     }
     else {
       document.getElementById("guildinfo").innerHTML = "";
