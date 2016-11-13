@@ -20,7 +20,7 @@ function processRequest(e) {
 
     document.getElementById("created").innerHTML = response.createdFriendly;
     document.getElementById("level").innerHTML = response.level;
-    document.getElementById("xp").innerHTML = response.xp;
+    document.getElementById("xp").innerHTML = response.xp + "%";
     document.getElementById("territories").innerHTML = response.territories;
 
     for (var player in response.members) {
