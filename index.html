@@ -31,8 +31,10 @@
                     id="searchbox"
                     class="active"
                     type="text"
-                    name="name">
-                  <label for="name">Name</label>
+                    name="name"
+                    onkeydown="searchtype()"
+                    onblur="searchtype()">
+                  <label for="name" onclick="$('#searchbox').focus()">Name</label>
                 </div>
                 <p>
                   <input class="with-gap" type="radio" name="searchtype" id="radp" checked>

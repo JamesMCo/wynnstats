@@ -12,3 +12,7 @@ function gotoStatsURL() {
     $("#searchbox").addClass("invalid");
   }
 }
+
+function searchtype() {
+  $("#searchbox").removeClass("invalid")
+}
