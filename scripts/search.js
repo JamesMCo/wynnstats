@@ -13,6 +13,11 @@ function gotoStatsURL() {
   }
 }
 
-function searchtype() {
+function searchkeypress(event) {
   $("#searchbox").removeClass("invalid")
+  if (event != null) {
+    if (event.keyCode == 13) {
+      $("#searchbtn").click();
+    }
+  }
 }
