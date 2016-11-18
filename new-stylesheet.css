@@ -1,0 +1,36 @@
+a
+{
+  text-decoration: none;
+  font-weight: 700;
+}
+body
+{
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+footer a
+{
+  color: #ffab40;
+}
+main
+{
+  flex: 1 0 auto;
+}
+td
+{
+  text-align: left;
+}
+th
+{
+  text-align: right;
+}
+.classtitle
+{
+  text-transform: capitalize;
+}
+.hoverpointer
+{
+  cursor: pointer;
+}
