@@ -3,61 +3,126 @@
   <head>
     <meta charset="utf-8">
     <title>WynnStats</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Titillium+Web:700" rel="stylesheet">
-    <link href="stylesheet.css" rel="stylesheet">
-    <script src="scripts/playerstats.js" type="text/javascript"></script>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" media="screen,projection"/>
+    <link href="new-stylesheet.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
-  <body>
-    <div class="main">
-      <h1>WynnStats</h1>
-      <h1 id="namerank"><span id="username"></span> - <span id="rank"></span></h1>
-      <h2 id="guildinfo" class="hoverpointer"><span id="guildname"></span> - <span id="guildrank"></span></h2>
-      <h2 id="c_server"></h2>
-      <table id="stats">
-        <tr>
-          <th style="vertical-align: text-top;">Total Playtime</th>
-          <td id="playtime"></td>
-        </tr>
-        <tr>
-          <th>First Joined</th>
-          <td id="first_join"></td>
-        </tr>
-        <tr>
-          <th>Last Joined</th>
-          <td id="last_join"></td>
-        </tr>
-        <tr>
-          <th>Mobs Killed</th>
-          <td id="mobs_killed"></td>
-        </tr>
-        <tr>
-          <th>PvP Kills</th>
-          <td id="pvp_kills"></td>
-        </tr>
-        <tr>
-          <th>PvP Deaths</th>
-          <td id="pvp_deaths"></td>
-        </tr>
-        <tr>
-          <th>Chests Found</th>
-          <td id="chests_found"></td>
-        </tr>
-        <tr>
-          <th>Logins</th>
-          <td id="logins"></td>
-        </tr>
-        <tr>
-          <th>Deaths</th>
-          <td id="deaths"></td>
-        </tr>
-        <tr>
-          <th>Total Level</th>
-          <td id="total_level"></td>
-        </tr>
-      </table>
-      <h1>Classes:</h1>
+  <body class="light-green lighten-2">
+    <header>
+      <nav>
+        <div class="nav-wrapper light-green darken-2">
+          <a href="#" class="brand-logo center-on-small-only">WynnStats</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+      <div class="row">
+        <div class="col s8 offset-s2">
+          <div class="card light-green lighten-5 hoverable">
+            <div class="card-content">
+              <h4 id="namerank" class="center-align"><span id="username"></span> - <span id="rank"></span></h4>
+              <h5 id="guildinfo" class="orange-text hoverpointer center-align"><span id="guildname"></span> - <span id="guildrank"></span></h5>
+              <h5 id="c_server"></h5>
+              <br>
+              <div class="container">
+                <h5>Global Stats</h5>
+                <table id="stats" class="bordered">
+                  <tr>
+                    <th style="vertical-align: text-top;">Total Playtime</th>
+                    <td id="playtime"></td>
+                  </tr>
+                  <tr>
+                    <th>First Joined</th>
+                    <td id="first_join"></td>
+                  </tr>
+                  <tr>
+                    <th>Last Joined</th>
+                    <td id="last_join"></td>
+                  </tr>
+                  <tr>
+                    <th>Mobs Killed</th>
+                    <td id="mobs_killed"></td>
+                  </tr>
+                  <tr>
+                    <th>PvP Kills</th>
+                    <td id="pvp_kills"></td>
+                  </tr>
+                  <tr>
+                    <th>PvP Deaths</th>
+                    <td id="pvp_deaths"></td>
+                  </tr>
+                  <tr>
+                    <th>Chests Found</th>
+                    <td id="chests_found"></td>
+                  </tr>
+                  <tr>
+                    <th>Logins</th>
+                    <td id="logins"></td>
+                  </tr>
+                  <tr>
+                    <th>Deaths</th>
+                    <td id="deaths"></td>
+                  </tr>
+                  <tr>
+                    <th>Total Level</th>
+                    <td id="total_level"></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div id="classdiv"></div>
-    </div>
-    <footer>Created by <a href="https://jammy4312.me">Jammy4312</a> using the <a href="https://docs.wynncraft.com/public/">Wynncraft Public API</a>. Unaffiliated with Wynncraft, Mojang AB and the Microsoft Corporation.</footer>
+      <div class="container">
+        <div class="row">
+          <div class="col s8 offset-s2">
+            <div class="card light-green lighten-5 hoverable">
+              <div class="card-content">
+                <h4>Find a Player or Guild's Stats</h4>
+                <div class="input-field">
+                  <input
+                    id="searchbox"
+                    class="active"
+                    type="text"
+                    name="name"
+                    onkeydown="searchkeypress(event)"
+                    onblur="searchkeypress(null)">
+                  <label for="name" onclick="$('#searchbox').focus()">Name</label>
+                </div>
+                <p>
+                  <input class="with-gap" type="radio" name="searchtype" id="radp" checked>
+                  <label for="radp">Player</label>
+                </p>
+                <p>
+                  <input class="with-gap" type="radio" name="searchtype" id="radg">
+                  <label for="radg">Guild</label>
+                </p>
+              </div>
+              <div class="card-action">
+                <a id="searchbtn" class="waves-effect waves-green btn-flat" onclick="gotoStatsURL()">Search <i class="material-icons right">search</i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    <footer class="page-footer light-green lighten-2">
+      <div class="footer-copyright light-green darken-3">
+        <div class="container">
+          Created by <a href="https://jammy4312.me">Jammy4312</a> using the <a href="https://docs.wynncraft.com/public/">Wynncraft Public API</a>. Unaffiliated with Wynncraft, Mojang AB and the Microsoft Corporation.
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script src="scripts/search.js" type="text/javascript"></script>
+    <script src="scripts/playerstats.js" type="text/javascript"></script>
   </body>
 </html>

@@ -18,14 +18,6 @@ main
 {
   flex: 1 0 auto;
 }
-td
-{
-  text-align: left;
-}
-th
-{
-  text-align: right;
-}
 .classtitle
 {
   text-transform: capitalize;
