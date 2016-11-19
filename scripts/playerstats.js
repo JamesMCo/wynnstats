@@ -17,6 +17,7 @@ function processRequest(e) {
 
     document.getElementsByTagName("title")[0].innerHTML = response.username + " - WynnStats";
     document.getElementById("username").innerHTML = response.username;
+    document.getElementById("avatar").src = "https://visage.surgeplay.com/bust/350/" + response.username + ".png"
 
     if (response.tag != "") {
       document.getElementById("rank").innerHTML = response.rank + " (" + response.tag + ")";
