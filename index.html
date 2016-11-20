@@ -8,7 +8,7 @@
     <link href="new-stylesheet.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
-  <body class="light-green lighten-2">
+  <body class="light-green lighten-2" onclick="$('.dropdown-button').dropdown('close')">
     <header>
       <nav>
         <div class="nav-wrapper light-green darken-2">
@@ -26,16 +26,22 @@
             <div class="card light-green lighten-5">
               <div class="card-content">
                 <h4>Find a Player or Guild's Stats</h4>
-                <div class="input-field">
-                  <input
-                    id="searchbox"
-                    class="active"
-                    type="text"
-                    name="name"
-                    onkeydown="searchkeypress(event)"
-                    onblur="searchkeypress(null)">
-                  <label for="name" onclick="$('#searchbox').focus()">Name</label>
+                <div class="row valign-wrapper">
+                  <div class="input-field col s9">
+                    <input
+                      id="searchbox"
+                      class="active"
+                      type="text"
+                      name="name"
+                      onkeydown="searchkeypress(event)"
+                      onblur="searchkeypress(null)">
+                    <label for="name" onclick="$('#searchbox').focus()">Name</label>
+                  </div>
+                  <div class="col s3 valign">
+                    <a class="dropdown-button btn-flat" onclick="autocomplete()" data-activates="acdd" data-constrainwidth="false">Lookup <i class="material-icons right">search</i></a>
+                  </div>
                 </div>
+                <ul id="acdd" class="dropdown-content collection"></ul>
                 <p>
                   <input class="with-gap" type="radio" name="searchtype" id="radp" checked>
                   <label for="radp">Player</label>

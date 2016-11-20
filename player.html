@@ -94,16 +94,22 @@
             <div class="card light-green lighten-5">
               <div class="card-content">
                 <h4>Find a Player or Guild's Stats</h4>
-                <div class="input-field">
-                  <input
-                    id="searchbox"
-                    class="active"
-                    type="text"
-                    name="name"
-                    onkeydown="searchkeypress(event)"
-                    onblur="searchkeypress(null)">
-                  <label for="name" onclick="$('#searchbox').focus()">Name</label>
+                <div class="row valign-wrapper">
+                  <div class="input-field col s8">
+                    <input
+                      id="searchbox"
+                      class="active"
+                      type="text"
+                      name="name"
+                      onkeydown="searchkeypress(event)"
+                      onblur="searchkeypress(null)">
+                    <label for="name" onclick="$('#searchbox').focus()">Name</label>
+                  </div>
+                  <div class="col s5 valign">
+                    <a class="dropdown-button btn-flat" onclick="autocomplete()" data-activates="acdd" data-constrainwidth="false">Lookup <i class="material-icons right">search</i></a>
+                  </div>
                 </div>
+                <ul id="acdd" class="dropdown-content collection"></ul>
                 <p>
                   <input class="with-gap" type="radio" name="searchtype" id="radp" checked>
                   <label for="radp">Player</label>
