@@ -63,6 +63,11 @@ function autocomplete() {
           }
         }
       }
+      else if (xhr.readyState == 4 && xhr.status == 429) {
+         Materialize.toast('WynnCraft API Error!<br>HTTP 429 - Too Many Requests!<br>Please try again later!', 4000);
+         $(".dropdown-button").dropdown("close");
+         return;
+      }
       $(".dropdown-button").dropdown(
         {
           constrain_width: false,
