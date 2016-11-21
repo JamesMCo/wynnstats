@@ -1,33 +1,22 @@
-html
+a
 {
-  background-color: #c8e6c9;
-}
-h1, h2, h3
-{
-  font-family: 'Titillium Web', sans-serif;
-}
-h2
-{
-  margin-bottom: 0;
+  text-decoration: none;
+  font-weight: 700;
 }
 body
 {
   font-family: 'Open Sans', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
-.main
+footer a
 {
-  display: block;
-  margin: auto;
-  width: 75%;
-  text-align: center;
-  background-color: #689f38;
+  color: #ffab40;
 }
-footer
+main
 {
-  display: block;
-  padding-top: 2em;
-  margin: auto;
-  width: 75%;
+  flex: 1 0 auto;
 }
 .classtitle
 {
@@ -36,23 +25,4 @@ footer
 .hoverpointer
 {
   cursor: pointer;
-}
-table
-{
-  margin: auto;
-  width: auto;
-}
-th
-{
-  text-align: right;
-}
-td
-{
-  text-align: left;
-}
-a
-{
-  color: #33691e;
-  text-decoration: none;
-  font-weight: 700;
 }
