@@ -75,6 +75,9 @@ function processRequest(e) {
       }
     }
   }
+  else if (xhr.readyState == 4 && xhr.status == 429) {
+    document.getElementById("main").innerHTML = "<br><h4 class=\"center-align\">WynnCraft API Error!</h4><h5 class=\"center-align\">HTTP 429 - Too Many Requests!<br>Please try again later!</h5>";
+  }
 }
 
 function toggleHideId(e) {
