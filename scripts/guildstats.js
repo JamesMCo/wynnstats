@@ -11,7 +11,7 @@ function processRequest(e) {
     var response = JSON.parse(xhr.responseText);
 
     if (response.error == "Guild not found") {
-      document.getElementsByClassName("main")[0].innerHTML = "<h1>WynnStats</h1><h1>Guild not found!</h1><br><br><h3>Find Another Guild's Stats</h3><form action='guild' method='get'><input type='text' name='name' placeholder='Guild Name (Case Sensitive)'><input type='submit'></form><br><br>";
+      document.getElementById("main").innerHTML = "<br><h4 class=\"center-align\">Guild not found!</h4><br>";
       return
     }
 
