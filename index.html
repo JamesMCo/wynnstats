@@ -12,7 +12,8 @@
     <header>
       <nav>
         <div class="nav-wrapper light-green darken-2">
-          <a href="/wynnstats" class="brand-logo center-on-small-only">WynnStats - A WynnCraft Stats Viewer</a>
+          <a href="/wynnstats" class="brand-logo hide-on-med-and-down">WynnStats - A WynnCraft Stats Viewer</a>
+          <a href="/wynnstats" class="brand-logo center-on-small-only hide-on-large-only">WynnStats</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="/wynnstats">Home</a></li>
           </ul>
@@ -25,9 +26,10 @@
           <div class="col s8 offset-s2">
             <div class="card light-green lighten-5">
               <div class="card-content">
-                <h4>Find a Player or Guild's Stats</h4>
+                <h4 class="hide-on-small-only">Find a Player or Guild's Stats</h4>
+                <h4 class="hide-on-med-and-up" style="text-align: center;">Find a Player or Guild's Stats</h4>
                 <div class="row valign-wrapper">
-                  <div class="input-field col s9">
+                  <div class="input-field col s9 m10">
                     <input
                       id="searchbox"
                       class="active"
@@ -37,8 +39,8 @@
                       onblur="searchkeypress(null)">
                     <label for="name" onclick="$('#searchbox').focus()">Name</label>
                   </div>
-                  <div class="col s3 valign">
-                    <a class="dropdown-button btn-flat" onclick="autocomplete()" data-activates="acdd" data-constrainwidth="false">Lookup <i class="material-icons right">search</i></a>
+                  <div class="col s3 m2">
+                    <a class="dropdown-button btn-floating right" onclick="autocomplete()" data-activates="acdd" data-constrainwidth="false"><i class="material-icons">search</i></a>
                   </div>
                 </div>
                 <ul id="acdd" class="dropdown-content collection"></ul>
