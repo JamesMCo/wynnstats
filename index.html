@@ -62,15 +62,25 @@
       </div>
     </main>
     <footer class="page-footer light-green lighten-2">
-      <div class="footer-copyright light-green darken-3">
+      <div class="footer-copyright light-green darken-3 hide-on-med-and-down">
         <div class="container">
           Created by <a href="https://jammy4312.me">Jammy4312</a> using the <a href="https://docs.wynncraft.com/public/">Wynncraft Public API</a>. Unaffiliated with Wynncraft, Mojang AB and the Microsoft Corporation.
         </div>
       </div>
+      <div class="footer-copyright light-green darken-3 hide-on-large-only">
+        <div class="container">
+          <a href="#copyright" class="white-text" style="font-weight: 400;">Click for Copyright Info</a>
+        </div>
+        <div id="copyright" class="modal bottom-sheet">
+          <div class="modal-content grey-text">
+            Created by <a href="https://jammy4312.me">Jammy4312</a> using the <a href="https://docs.wynncraft.com/public/">Wynncraft Public API</a>. Unaffiliated with Wynncraft, Mojang AB and the Microsoft Corporation.
+          </div>
+        </div>
+      </div>
     </footer>
-
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script src="scripts/search.js"></script>
+    <script type="text/javascript">$('#copyright').modal();</script>
   </body>
 </html>
