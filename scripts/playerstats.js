@@ -17,22 +17,29 @@ function processRequest(e) {
 
     document.getElementsByTagName("title")[0].innerHTML = response.username + " - WynnStats";
     document.getElementById("username").innerHTML = response.username;
+    document.getElementById("username1").innerHTML = response.username;
     document.getElementById("avatar").src = "https://visage.surgeplay.com/bust/350/" + response.username + ".png"
 
     if (response.tag != "") {
       document.getElementById("rank").innerHTML = response.rank + " (" + response.tag + ")";
+      document.getElementById("rank1").innerHTML = response.rank + " (" + response.tag + ")";
     }
     else {
       document.getElementById("rank").innerHTML = response.rank;
+      document.getElementById("rank1").innerHTML = response.rank;
     }
 
     if (response.guild.name != "None") {
       document.getElementById("guildname").innerHTML = response.guild.name;
       document.getElementById("guildrank").innerHTML = response.guild.rank;
       document.getElementById("guildlink").href = "guild?name=" + response.guild.name
+      document.getElementById("guildname1").innerHTML = response.guild.name;
+      document.getElementById("guildrank1").innerHTML = response.guild.rank;
+      document.getElementById("guildlink1").href = "guild?name=" + response.guild.name
     }
     else {
       document.getElementById("guildinfo").innerHTML = "";
+      document.getElementById("guildinfo1").innerHTML = "";
     }
 
     if (response.current_server != "null") {
