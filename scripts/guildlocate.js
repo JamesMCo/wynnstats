@@ -25,7 +25,7 @@ function processRequest(e) {
           p = response.members[player]
           if (typeof p.name !== "undefined") {
             if (document.getElementById(p.name + "row") == null) {
-              document.getElementById("players").innerHTML += "<tr id='" + p.name + "row'><th><a class='orange-text' href='../player?name=" + p.name + "'>" + p.name + "</a></th><td id='" + p.name + "status'><span class='red-text'>• </span>Offline</td></tr>"
+              document.getElementById("players").innerHTML += "<tr id='" + p.name + "row'><th><a class='orange-text' href='player?name=" + p.name + "'>" + p.name + "</a></th><td id='" + p.name + "status'><span class='red-text'>• </span>Offline</td></tr>"
             }
           }
         }
