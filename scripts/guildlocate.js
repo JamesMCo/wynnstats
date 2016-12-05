@@ -18,7 +18,7 @@ function processRequest(e) {
     if (typeof response.prefix !== "undefined") {
       document.getElementsByTagName("title")[0].innerHTML = response.name + " Locator - WynnStats";
       document.getElementById("guildname").innerHTML = response.name + " (" + response.prefix + ")";
-      document.getElementById("statslink").href = "../guild?name=" + response.name;
+      document.getElementById("statslink").href = "guild?name=" + response.name;
 
       for (var player in response.members) {
         if (response.members.hasOwnProperty(player)) {
