@@ -17,6 +17,7 @@ function processRequest(e) {
 
     document.getElementsByTagName("title")[0].innerHTML = response.name + " - WynnStats";
     document.getElementById("guildname").innerHTML = response.name + " (" + response.prefix + ")";
+    document.getElementById("locatelink").href = "../guild/locate?name=" + response.name;
 
     document.getElementById("created").innerHTML = response.createdFriendly;
     document.getElementById("level").innerHTML = response.level;
