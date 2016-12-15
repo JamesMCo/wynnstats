@@ -12,6 +12,7 @@ function processRequest(e) {
 
     if (response.error == "Player not found") {
       $("#main").html("<br><h4 class=\"center-align\">Player not found!</h4><br>");
+      $("#loading_circle").fadeToggle("slow", function(){$("#loading_circle").remove(); $("main").fadeToggle("slow");});
       return
     }
 
@@ -81,8 +82,11 @@ function processRequest(e) {
         $("#classdiv").append(cur_stat_html + "<tr><th>Mobs Killed</th><td>" + c.mobs_killed + "</td></tr><tr><th>PvP Kills</th><td>" + c.pvp_kills + "</td></tr><tr><th>PvP Deaths</th><td>" + c.pvp_deaths + "</td></tr><tr><th>Chests Found</th><td>" + c.chests_found + "</td></tr><tr><th>Logins</th><td>" + c.logins + "</td></tr><tr><th>Deaths</th><td>" + c.deaths + "</td></tr><tr><th>Events Won</th><td>" + c.events_won + "</td></tr></table></div></div></div></div></div></div>");
       }
     }
+    $("#loading_circle").fadeToggle("slow", function(){$("#loading_circle").remove(); $("main").fadeToggle("slow");});
   }
   else if (xhr.readyState == 4 && xhr.status == 429) {
     $("#main").html("<br><h4 class=\"center-align\">WynnCraft API Error!</h4><h5 class=\"center-align\">HTTP 429 - Too Many Requests!<br>Please try again later!</h5>");
+    $("main").fadeToggle("slow");
+    $("#loading_circle").fadeToggle("slow", function(){$("#loading_circle").remove(); $("main").fadeToggle("slow");});
   }
 }

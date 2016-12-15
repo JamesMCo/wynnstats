@@ -12,6 +12,7 @@ function processRequest(e) {
 
     if (response.error == "Guild not found") {
       $("#main").html("<br><h4 class=\"center-align\">Guild not found!</h4><br>");
+      $("#loading_circle").fadeToggle("slow", function(){$("#loading_circle").remove(); $("main").fadeToggle("slow");});
       return
     }
 
@@ -34,8 +35,10 @@ function processRequest(e) {
         }
       }
     }
+    $("#loading_circle").fadeToggle("slow", function(){$("#loading_circle").remove(); $("main").fadeToggle("slow");});
   }
   else if (xhr.readyState == 4 && xhr.status == 429) {
     $("#main").html("<br><h4 class=\"center-align\">WynnCraft API Error!</h4><h5 class=\"center-align\">HTTP 429 - Too Many Requests!<br>Please try again later!</h5>");
+    $("#loading_circle").fadeToggle("slow", function(){$("#loading_circle").remove(); $("main").fadeToggle("slow");});
   }
 }
