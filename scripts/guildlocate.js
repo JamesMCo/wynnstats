@@ -11,21 +11,21 @@ function processRequest(e) {
     var response = JSON.parse(xhr.responseText);
 
     if (response.error == "Guild not found") {
-      document.getElementById("main").innerHTML = "<br><h4 class=\"center-align\">Guild not found!</h4><br>";
+      $("#main").html("<br><h4 class=\"center-align\">Guild not found!</h4><br>");
       return
     }
 
     if (typeof response.prefix !== "undefined") {
-      document.getElementsByTagName("title")[0].innerHTML = response.name + " Locator - WynnStats";
-      document.getElementById("guildname").innerHTML = response.name + " (" + response.prefix + ")";
-      document.getElementById("statslink").href = "guild?name=" + response.name;
+      $("title").html(response.name + " Locator - WynnStats");
+      $("#guildname").html(response.name + " (" + response.prefix + ")");
+      $("#statslink").attr("href", "guild?name=" + response.name);
 
       for (var player in response.members) {
         if (response.members.hasOwnProperty(player)) {
           p = response.members[player]
           if (typeof p.name !== "undefined") {
-            if (document.getElementById(p.name + "row") == null) {
-              document.getElementById("players").innerHTML += "<tr id='" + p.name + "row'><th><a class='orange-text' href='player?name=" + p.name + "'>" + p.name + "</a></th><td id='" + p.name + "status'><span class='red-text'>• </span>Offline</td></tr>"
+            if ($("#" + p.name + "row").length == 0) {
+              $("#players").append("<tr id='" + p.name + "row'><th><a class='orange-text' href='player?name=" + p.name + "'>" + p.name + "</a></th><td id='" + p.name + "status'><span class='red-text'>• </span>Offline</td></tr>")
             }
           }
         }
@@ -37,8 +37,8 @@ function processRequest(e) {
       for (var server in response) {
         if (server !== "request") {
           for (var player in response[server]) {
-            if (document.getElementById(response[server][player] + "status") !== null) {
-              document.getElementById(response[server][player] + "status").innerHTML = "<span class='green-text'>• </span>" + server;
+            if ($("#" + response[server][player] + "status").length == 1) {
+              $("#" + response[server][player] + "status").html("<span class='green-text'>• </span>" + server);
             }
           }
         }
@@ -46,29 +46,6 @@ function processRequest(e) {
     }
   }
   else if (xhr.readyState == 4 && xhr.status == 429) {
-    document.getElementById("main").innerHTML = "<br><h4 class=\"center-align\">WynnCraft API Error!</h4><h5 class=\"center-align\">HTTP 429 - Too Many Requests!<br>Please try again later!</h5>";
-  }
-}
-
-function toggleHideId(e) {
-  if (document.getElementById(e).style.display == "") {
-    document.getElementById(e).style.display = "none"
-  }
-  else {
-    document.getElementById(e).style.display = ""
-  }
-}
-
-function toggleHideClass(e) {
-  for (var i in document.getElementsByClassName(e)) {
-    if (document.getElementsByClassName(e).hasOwnProperty(i)) {
-      j = eval(document.getElementsByClassName(e)[i])
-      if (j.style.display == "") {
-        j.style.display = "none"
-      }
-      else {
-        j.style.display = ""
-      }
-    }
+    $("#main").html("<br><h4 class=\"center-align\">WynnCraft API Error!</h4><h5 class=\"center-align\">HTTP 429 - Too Many Requests!<br>Please try again later!</h5>");
   }
 }
