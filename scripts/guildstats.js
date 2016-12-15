@@ -22,7 +22,7 @@ function processRequest(e) {
 
     $("#created").html(response.createdFriendly);
     $("#level").html(response.level);
-    $("#xp").html(response.xp + "%");
+    $("#xp").html(response.xp + "%<div class='progress light-green darken-3'><div class='determinate light-green' style='width: " + response.xp + "%'></div></div>");
     $("#territories").html(response.territories);
 
     for (var player in response.members) {
