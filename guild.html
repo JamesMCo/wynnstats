@@ -105,6 +105,33 @@
           </div>
         </div>
       </div>
+      <div class="container">
+        <div class="row">
+          <div class="col s8 offset-s2">
+            <div class="card light-green lighten-5">
+              <div class="card-content">
+                <h4 class="hide-on-small-only">Find a Player or Guild's Current Server</h4>
+                <h4 class="hide-on-med-and-up" style="text-align: center;">Find a Player or Guild's Current Server</h4>
+                <p>Type a name, press Enter to type multiple names.</p>
+                <div class="input-field col s12 ">
+                  <div id="locatebox" class="chips"></div>
+                </div>
+                <p>
+                  <input class="with-gap" type="radio" name="locatetype" id="lradp" checked>
+                  <label for="lradp">Players</label>
+                </p>
+                <p>
+                  <input class="with-gap" type="radio" name="locatetype" id="lradg">
+                  <label for="lradg">Guild</label>
+                </p>
+              </div>
+              <div class="card-action">
+                <a id="locatebtn" class="waves-effect waves-green btn-flat" onclick="gotoLocateURL()">Locate <i class="material-icons right">search</i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer class="page-footer light-green lighten-2">
       <div class="footer-copyright light-green darken-3 hide-on-med-and-down">
@@ -125,8 +152,9 @@
     </footer>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-    <script type="text/javascript">$('#copyright').modal();</script>
-    <script src="scripts/search.js" type="text/javascript"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/locatesearch.js"></script>
+    <script type="text/javascript">$('#copyright').modal();$('.chips').material_chip({secondaryPlaceholder: 'Name'});</script>
     <script src="scripts/guildstats.js" type="text/javascript"></script>
   </body>
 </html>
